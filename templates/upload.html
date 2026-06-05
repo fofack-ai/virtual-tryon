@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleSpectrum - Try On</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #0077B6, #ffffff);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        h2 {
+            background: white;
+            opacity: 0.85;
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            font-size: 28px;
+            font-weight: bold;
+            color: #0077B6;
+            text-shadow: 0 0 5px #00B4DB, 0 0 10px #00B4DB;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            width: 400px;
+            max-width: 100%;
+            animation: slideIn 0.5s ease-out forwards;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin: 12px 0 4px;
+        }
+
+        input[type="file"],
+        select {
+            display: block;
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 8px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        input[type="submit"] {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 16px;
+            background-color: #0077B6;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005f8d;
+        }
+
+        .back-link {
+            margin-top: 16px;
+            text-align: center;
+        }
+
+        .back-link a {
+            color: #0077B6;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>Virtual Try-On</h2>
+    <form action="./upload.html" method="POST" enctype="multipart/form-data">
+        <label for="model_image">Your photo (standing position)</label>
+        <input type="file" id="model_image" name="model_image" accept="image/*" required>
+
+        <label for="clothes_image">Clothing item image</label>
+        <input type="file" id="clothes_image" name="clothes_image" accept="image/*" required>
+
+        <label for="garment_type">Garment type</label>
+        <select id="garment_type" name="garment_type" required>
+            <option value="">-- Select --</option>
+            <option value="upper_body">Upper body (shirt, jacket...)</option>
+            <option value="lower_body">Lower body (pants, skirt...)</option>
+        </select>
+
+        <input type="submit" value="Try On!">
+    </form>
+    <div class="back-link">
+        <a href="homw.html">&larr; Back to shop</a>
+    </div>
+</body>
+</html>
